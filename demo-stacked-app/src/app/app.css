@@ -1,0 +1,38 @@
+.shell {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.shell-header h1 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.shell-nav {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.shell-nav a {
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.shell-nav a:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.shell-nav a.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
