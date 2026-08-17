@@ -18,7 +18,6 @@ import { ExpenseStore } from '../expense-store';
           <tr>
             <th>Date</th>
             <th>Title</th>
-            <th>Category</th>
             <th class="right">Amount</th>
           </tr>
         </thead>
@@ -26,13 +25,15 @@ import { ExpenseStore } from '../expense-store';
           @for (expense of store.expenses(); track expense.id) {
             <tr>
               <td>{{ expense.date | date: 'dd MMM yyyy' }}</td>
-              <td>{{ expense.title }}</td>
-              <td>{{ expense.category }}</td>
+              <td>
+                {{ expense.title }}
+                <span class="badge">{{ expense.category }}</span>
+              </td>
               <td class="right">{{ expense.amount | currency: 'INR' }}</td>
             </tr>
           } @empty {
             <tr>
-              <td colspan="4" class="empty">No expenses yet.</td>
+              <td colspan="3" class="empty">No expenses yet.</td>
             </tr>
           }
         </tbody>
@@ -56,6 +57,19 @@ import { ExpenseStore } from '../expense-store';
       text-align: center;
       color: var(--muted);
       padding-block: 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-left: 0.5rem;
+      padding: 0.0625rem 0.5rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
   `,
 })
