@@ -20,6 +20,7 @@ import { ExpenseStore } from '../expense-store';
             <th>Title</th>
             <th>Category</th>
             <th class="right">Amount</th>
+            <th class="right">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -29,10 +30,15 @@ import { ExpenseStore } from '../expense-store';
               <td>{{ expense.title }}</td>
               <td>{{ expense.category }}</td>
               <td class="right">{{ expense.amount | currency: 'INR' }}</td>
+              <td class="right">
+                <button type="button" class="danger" (click)="store.remove(expense.id)">
+                  Delete
+                </button>
+              </td>
             </tr>
           } @empty {
             <tr>
-              <td colspan="4" class="empty">No expenses yet.</td>
+              <td colspan="5" class="empty">No expenses yet.</td>
             </tr>
           }
         </tbody>
@@ -56,6 +62,20 @@ import { ExpenseStore } from '../expense-store';
       text-align: center;
       color: var(--muted);
       padding-block: 2rem;
+    }
+
+    .danger {
+      padding: 0;
+      border: 0;
+      background: none;
+      color: #b91c1c;
+      font: inherit;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+
+    .danger:hover {
+      text-decoration: underline;
     }
   `,
 })
